@@ -74,6 +74,9 @@
                     <p class="text-danger" *ngIf="!dp.valid && user.submitted">
                       <span class="d-block text-left mt-1 ml-1 small text-danger" *ngIf="dp.errors.required">Date of Birth is required!</span>
                     </p>
+                    <p class="text-danger" *ngIf="ageRes">
+                      <span class="d-block text-left mt-1 ml-1 small text-danger" >For further proceeding age should be above 18 years !</span>
+                    </p>
                   </div>
 
                   <div class="form-group">
@@ -111,13 +114,24 @@
        </div>
        <div *ngIf="step == 2">
         <div class="step-2-section">
-           <h2>Provide data by you with us is following:</h2>
+           <h2>Data provided by you with us is following:</h2>
            <p>First Name : {{userDetails.user.firstName}} </p>
            <p>Last Name : {{userDetails.user.lastName}} </p>
            <p>E-Mail Adress : {{userDetails.user.email}} </p>
            <p>Phone Number : {{userDetails.user.phone}}</p>
            <p>Date Of Birth : {{userDetails.user.dp.day+'-'+userDetails.user.dp.month+'-'+userDetails.user.dp.year}}</p>
         </div>
+
+        <div class="step-2-section">
+          <h2>All Form Data : </h2>
+          <div class="allData" *ngFor="let data of completeData">
+          <p>First Name : {{data.firstName}} </p>
+          <p>Last Name : {{data.lastName}} </p>
+          <p>E-Mail Adress : {{data.email}} </p>
+          <p>Phone Number : {{data.phone}}</p>
+          <p>Date Of Birth : {{data.dp.day+'-'+data.dp.month+'-'+data.dp.year}}</p>
+          </div>
+       </div>
            </div>
            
        </div>
