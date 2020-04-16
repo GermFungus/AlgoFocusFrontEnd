@@ -1,0 +1,28 @@
+@font-face {
+  font-family: Lato-Light;
+  src: url(/assets/font/Lato-Light.ttf);
+}
+@font-face {
+  font-family: Lato-Regular;
+  src: url(/assets/font/Lato-Regular.ttf);
+}
+
+.header-class{
+  width: 100%;
+  background-color: #232633;
+  padding: 16px 25px;
+  font-family: Lato-Light;
+  .header-logo img{
+    width: 175px;
+    cursor: pointer;
+  }
+  .logout-div{
+    float: right;
+    margin-top: -40px;
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+}

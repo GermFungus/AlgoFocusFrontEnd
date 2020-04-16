@@ -1,0 +1,16 @@
+.footer-class{
+  width: 100%;
+  // margin-top: 170px;
+  padding: 50px 115px;
+  color:#fff;
+  background-color: #232633;
+  .footer-logo img{
+    width: 175px;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .footer-class{
+    padding: 50px 15px;
+  }
+}

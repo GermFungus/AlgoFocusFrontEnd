@@ -1,0 +1,129 @@
+
+<div class="home-main-container">
+    <div class="developer_registartion">
+     <div class="container">
+       <div class="main-registration-part" *ngIf="(step != 4)">
+         <div class="heading-11">
+           <h2>Join Offorms - Developer</h2>
+           <p>Submit your details for evaluation</p>
+         </div>
+         <div class="tab-section">
+           <div class="Coloumn-gap">
+             <div class="steps-details">
+               <ul>
+                 <li *ngIf="(step == 1)"><img src="assets/images/Head-Icon.png" alt=""></li>
+                 <li *ngIf="!(step == 1)"><img src="assets/images/HeadGrey.png" alt=""></li>
+                 <li><p style="margin-top:4px !important;">Step 1: <span>Complete the form</span></p></li>
+               </ul>
+             </div>
+           </div>
+           <div class="Coloumn-gap">
+             <div class="steps-details">
+               <ul>
+                 <li *ngIf="!(step == 2)"><img src="assets/images/link_icon_grey.png" alt=""></li>
+                 <li *ngIf="(step == 2)"><img src="assets/images/link_icon_blue.png" alt=""></li> 
+                 <li><p style="margin-top:4px !important;">Step 2: <span>Save and Veiw Data</span></p></li>
+               </ul>
+             </div>
+           </div>
+         </div>
+         <div *ngIf="step == 1">
+         <div class="step-1-section">
+           <h2>Fill Your Details</h2>
+           <div class="step-form-information">
+             <div class="row">
+               <div class="col-md-6 col-sm-6">
+                 <form class="w_60" #user="ngForm" (ngSubmit)="register(user)" >
+                   <div class="form-group">
+                     <label>First Name</label>
+                     <!-- <input type="text" class="form-control custom-idea"> -->
+                     <input ngModel #firstName="ngModel" required  class="form-control" type="text" name="firstName" placeholder="First Name" pattern="[a-zA-Z][a-zA-Z ]+">
+                     <p class="text-danger" *ngIf="!firstName.valid && user.submitted">
+                       <span class="d-block text-left mt-1 ml-1 small text-danger" *ngIf="firstName.errors.required">First Name is required!</span>
+                       <span class="d-block text-left mt-1 ml-1 small text-danger" *ngIf="firstName.errors.pattern">Please enter a valid Name.</span>
+                     </p>
+                   </div>
+                   <div class="form-group">
+                     <label>Last Name</label>
+                     <!-- <input type="text" class="form-control custom-idea"> -->
+                     <input ngModel #lastName="ngModel" required  class="form-control" type="text" name="lastName" placeholder="Last Name" pattern="[a-zA-Z][a-zA-Z ]+">
+                     <p class="text-danger" *ngIf="!lastName.valid && user.submitted">
+                       <span class="d-block text-left mt-1 ml-1 small text-danger" *ngIf="lastName.errors.required">Last Name is required!</span>
+                       <span class="d-block text-left mt-1 ml-1 small text-danger" *ngIf="lastName.errors.pattern">Please enter a valid last name.</span>
+                     </p>
+                   </div>
+                   <div class="form-group">
+                     <label>Email</label>
+                     <!-- <input type="text" class="form-control custom-idea"> -->
+                     <input ngModel #email="ngModel" required  class="form-control" type="email" name="email" placeholder="Email" pattern="^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$">
+                     <p class="text-danger" *ngIf="!email.valid && user.submitted">
+                       <span class="d-block text-left mt-1 ml-1 small text-danger" *ngIf="email.errors.required">Email is required!</span>
+                       <span class="d-block text-left mt-1 ml-1 small text-danger" *ngIf="email.errors.pattern">Please enter a valid email address.</span>
+                     </p>
+                   </div>
+
+                   <div class="form-group">
+                     <label>Date Of Birth</label>
+                    <div class="input-group">
+                      <input class="form-control" placeholder="yyyy-mm-dd"
+                             name="dp" ngModel ngbDatepicker #d="ngbDatepicker" #dp="ngModel" required>
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                      </div>
+                    </div>
+                    <p class="text-danger" *ngIf="!dp.valid && user.submitted">
+                      <span class="d-block text-left mt-1 ml-1 small text-danger" *ngIf="dp.errors.required">Date of Birth is required!</span>
+                    </p>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Phone Number </label>
+                    <!-- <input type="text" class="form-control custom-idea"> -->
+                    <input ngModel #phone="ngModel" required  class="form-control" type="text" name="phone" placeholder="Number" required>
+                    <p class="text-danger" *ngIf="!phone.valid && user.submitted">
+                      <span class="d-block text-left mt-1 ml-1 small text-danger" *ngIf="phone.errors.required">Phone Number is required!</span>
+                    </p>
+                    <p class="text-danger" *ngIf="!phoneState">
+                      <span class="d-block text-left mt-1 ml-1 small text-danger">Phone Number is required with 10 digits only no spaces!</span>
+                    </p>
+                  </div>
+
+                   <button type="submit" class="button btn-steps">Continue</button>
+                 </form>
+                 
+               </div>
+               <div class="col-md-6 col-sm-6">
+                 <div class="free-points">
+                   <h2>You’ll love Offorms</h2>
+                   <div class="free">
+                     <p><a>Free</a> for developers</p>
+                   </div>
+                   <ul class="list">
+                     <li><span>✓</span> Your data is safe</li>
+                     <li><span>✓</span> Build better understanding</li>
+                     <li><span>✓</span> Showcase all your skills</li>
+                   </ul>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+       <div *ngIf="step == 2">
+        <div class="step-2-section">
+           <h2>Provide data by you with us is following:</h2>
+           <p>First Name : {{userDetails.user.firstName}} </p>
+           <p>Last Name : {{userDetails.user.lastName}} </p>
+           <p>E-Mail Adress : {{userDetails.user.email}} </p>
+           <p>Phone Number : {{userDetails.user.phone}}</p>
+           <p>Date Of Birth : {{userDetails.user.dp.day+'-'+userDetails.user.dp.month+'-'+userDetails.user.dp.year}}</p>
+        </div>
+           </div>
+           
+       </div>
+           
+         </div>
+       </div>
+     </div>
+     
+   
