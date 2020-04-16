@@ -14,7 +14,7 @@ export class ApiparserService {
 
 
   hit(url, method, data, needRaw=false, headers=false){
-    url = "https://algofocus-assignment.herokuapp.com/" + url;
+    url = "https://algofocus-assignment.herokuapp.com" + url;
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
