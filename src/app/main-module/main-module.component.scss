@@ -940,3 +940,36 @@
       padding: 10px;
       margin : 5px;
     }
+
+    .tableRow{
+      box-sizing: border-box;
+      padding: 10px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tableCell{
+      text-align: center;
+      width: 16%;
+      box-sizing: border-box;
+      font-size: 14px;
+      overflow: auto;
+      border: 1px solid black;
+      margin-bottom: 1px;
+      padding: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 2px;
+    }
+
+    .tableCell p{
+      font-size: 14px !important;
+      margin: 0!important;
+      overflow-wrap: break-word;
+    }
+
+    .imgContainer{
+      max-width: 100%;
+      height: auto;
+    }

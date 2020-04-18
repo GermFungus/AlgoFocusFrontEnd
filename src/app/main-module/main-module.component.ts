@@ -20,6 +20,7 @@ export class MainModuleComponent implements OnInit {
   public phoneState = true;
   public ageRes = false;
   public completeData : any;
+  public pic :any;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -31,11 +32,22 @@ export class MainModuleComponent implements OnInit {
         return data;
     }
 
+    async uploadImage(data){ 
+      let resp = await this.ApiParser.hitImage('/user/register' , 'post' , data);
+      return resp;
+    }
+    picUpload = (event)=>{
+      this.pic = event.target.files[0];
+      console.log("Yes");
+      console.log(this.pic);
+    }
+
     async register(user : NgForm){
       if(!user || !user.valid) return;
       var userToSend ={
         user:user.form.value
       }
+      
       var dob = new Date(user.form.value.dp.year , user.form.value.dp.month , user.form.value.dp.day);
       var today = new Date();
       var age = today.getFullYear() - dob.getFullYear();
@@ -52,6 +64,12 @@ export class MainModuleComponent implements OnInit {
       console.log(userToSend);
       this.RegistrationService.register(userToSend).then(async (result:any)=>{
         if(result[0] === 'sucess'){
+          let image = new FormData();
+          image.append('file' , this.pic , user.form.value.email); 
+          let upload = await this.uploadImage(image);
+          if(upload === 'sucsess'){
+            console.log('done');
+          }
           this.userDetails=userToSend;
           console.log(this.userDetails);
           this.step = 2; 
